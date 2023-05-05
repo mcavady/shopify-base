@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "description": "Shopify version - Shopify CLI for themes",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "cp -r node_modules/shopify_jsm-image-tiles/scss . && cp -r node_modules/shopify_jsm-image-tiles/sections . && cp -r node_modules/shopify_jsm-image-tiles/snippets . && cp -r node_modules/shopify_jsm-image-tiles/locals ."
   },
   "author": "James Mcavady",
   "dependencies": {
-    "@shopify/cli": "^3.23.0"
+    "@shopify/cli": "^3.23.0",
+    "composer": "^4.1.0",
+    "remove": "^0.1.5",
+    "shopify_jsm-image-tiles": "^1.0.4"
   },
   "devDependencies": {
     "eslint": "^8.27.0",

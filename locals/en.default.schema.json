@@ -1,0 +1,39 @@
+{
+  "sections": {
+    "jsm": {
+      "title": "Title",
+      "section_name": "JSM Image Tiles",
+      "section_title": "Section title",
+      "section_align_left": "Align title Top",
+      "section_align_center": "Align title Center",
+      "section_align_right": "Align title Bottom",
+      "section_align_label": "Title Alignment",
+      "image_align_left": "Align image Left",
+      "image_align_center": "Align image Center",
+      "image_align_right": "Align image Right",
+      "image_align_label": "Image Alignment",
+      "blocks": {
+        "block_name": "Tile settings",
+        "image_label": "Image settings",
+        "image_quality_thumb": "thumb - 50 × 50",
+        "image_quality_small": "small - 100 × 100",
+        "image_quality_compact": "compact - 160 × 160",
+        "image_quality_medium": "medium - 240 × 240",
+        "image_quality_large": "large - 480 × 480",
+        "image_quality_grande": "grande - 600 × 600",
+        "image_quality_original": "original 1024 × 1024",
+        "image_quality_master": "No resize full size",
+        "image_quality_label": "Image Quality settings",
+        "link_label": "Link",
+        "link_color": "Link Color"
+      }
+    },
+    "all": {
+      "padding": {
+        "section_padding_heading": "Section padding",
+        "padding_top": "Top padding",
+        "padding_bottom": "Bottom padding"
+      }
+    }
+  }
+}
