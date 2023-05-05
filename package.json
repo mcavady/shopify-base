@@ -4,7 +4,7 @@
   "description": "Shopify version - Shopify CLI for themes",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "cp -r node_modules/shopify_jsm-image-tiles/scss . && cp -r node_modules/shopify_jsm-image-tiles/sections . && cp -r node_modules/shopify_jsm-image-tiles/snippets . && cp -r node_modules/shopify_jsm-image-tiles/locals ."
+    "postinstall": "node scripts/skip.js ||  cp -r node_modules/shopify_jsm-image-tiles/scss . && cp -r node_modules/shopify_jsm-image-tiles/sections . && cp -r node_modules/shopify_jsm-image-tiles/snippets . && cp -r node_modules/shopify_jsm-image-tiles/locals . && cp -r node_modules/shopify_jsm-image-tiles/assets . && echo \"Post install Ran\""
   },
   "author": "James Mcavady",
   "dependencies": {
