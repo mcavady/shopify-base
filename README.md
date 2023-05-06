@@ -24,3 +24,29 @@
 - use the following command IF YOU DO NOT WANT A CLEAN SETUP FROM dependency IN PACKAGE-LOCK.JSON / PACKAGE.JSON FOR THEME SPECIFIC SECTIONS AND BLOCKS
 
 <pre>npm install</pre>
+
+# Shopify Lighthouse CI
+
+You will need to set up action secrets within github for this to work, add lighthouse app and Shopify github access also
+
+<h3>Secrets needed </h3>
+
+<p>For slack notifications</p>
+<pre>
+SLACK_WEBHOOK
+</pre>
+
+<p>for storefront API - get this from store dashboard</p>
+<pre>
+SHOP_ACCESS_TOKEN
+</pre>
+
+<p>storefront password - get this from store dashboard / assumption for site build / remove from work flow if not needed</p>
+<pre>
+SHOP_STORE_PASS
+</pre>
+
+<p>Lighthouse app token - from github app - this will need to be enabled</p>
+<pre>
+LHCI_GITHUB_APP_TOKEN
+</pre>
