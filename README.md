@@ -31,7 +31,7 @@
 
 # Shopify CLI3
 <p>This is the version for intended use - you may want to disable the "hot reload" when running the gulp compiler as this will sometimes cause a 'double' reload, also when tabbing between windows the reload may trigger and it will get frustrating</p>
-<p>The latest Dawn theme can be found here - https://github.com/Shopify/dawn </p>
+<p>The latest Dawn theme can be found here - <a href="https://github.com/Shopify/dawn" title="https://github.com/Shopify/dawn" >https://github.com/Shopify/dawn</a> </p>
 
 # Shopify Lighthouse CI
 
@@ -44,7 +44,7 @@ You will need to set up action secrets within github for this to work, add light
 SLACK_WEBHOOK
 </pre>
 
-<p>For storefront API - get this from store dashboard</p>
+<p>For storefront API - get this from store dashboard <a href="https://shopify.dev/docs/themes/tools/github" title="https://shopify.dev/docs/themes/tools/github" >https://shopify.dev/docs/themes/tools/github</a> </p>
 <pre>
 SHOP_ACCESS_TOKEN
 </pre>
@@ -54,7 +54,7 @@ SHOP_ACCESS_TOKEN
 SHOP_STORE_PASS
 </pre>
 
-<p>Lighthouse app token - from github app - this will need to be enabled</p>
+<p>Lighthouse app token - from github app - this will need to be enabled <a href="https://github.com/GoogleChrome/lighthouse-ci" title="https://github.com/GoogleChrome/lighthouse-ci">https://github.com/GoogleChrome/lighthouse-ci</a> </p>
 <pre>
 LHCI_GITHUB_APP_TOKEN
 </pre>
