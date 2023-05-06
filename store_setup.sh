@@ -11,7 +11,7 @@ select yn in "Yes" "No"; do
     esac
 done
 
-#needs some work but for now works -
+#needs some work but for now works - locales could become a sticking point when multiple Sections are added in this way - will need to script something for appending locales to the default en GB for example.
 cp -r "$SHOPIFY_JSM_IMAGE_TILES"scss . \
 && cp -r "$SHOPIFY_JSM_IMAGE_TILES"sections . \
 && cp -r "$SHOPIFY_JSM_IMAGE_TILES"snippets . \
