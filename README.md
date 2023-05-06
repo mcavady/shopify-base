@@ -36,12 +36,12 @@ You will need to set up action secrets within github for this to work, add light
 SLACK_WEBHOOK
 </pre>
 
-<p>for storefront API - get this from store dashboard</p>
+<p>For storefront API - get this from store dashboard</p>
 <pre>
 SHOP_ACCESS_TOKEN
 </pre>
 
-<p>storefront password - get this from store dashboard / assumption for site build / remove from work flow if not needed</p>
+<p>Storefront password - get this from store dashboard / assumption for site build / remove from work flow if not needed</p>
 <pre>
 SHOP_STORE_PASS
 </pre>
