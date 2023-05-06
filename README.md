@@ -25,6 +25,14 @@
 
 <pre>npm install</pre>
 
+# The theme
+
+<p>This can be either your own theme or the DAWN theme from Shopify <strong>This must be Shopify 2.0 </strong></p>
+
+# Shopify CLI3
+<p>This is the version for intended use - you may want to disable the "hot reload" when running the gulp compiler as this will sometimes cause a 'double' reload, also when tabbing between windows the reload may trigger and it will get frustrating</p>
+<p>The latest Dawn theme can be found here - https://github.com/Shopify/dawn </p>
+
 # Shopify Lighthouse CI
 
 You will need to set up action secrets within github for this to work, add lighthouse app and Shopify github access also

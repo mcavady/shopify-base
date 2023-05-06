@@ -4,13 +4,11 @@
   "description": "Shopify version - Shopify CLI for themes",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "node scripts/skip.js ||  store_setup.sh && echo \"Post install Ran\""
+    "postinstall": "node scripts/bashscripting.js ||  store_setup.sh && echo \"Post install Ran\""
   },
   "author": "James Mcavady",
   "dependencies": {
     "@shopify/cli": "^3.23.0",
-    "composer": "^4.1.0",
-    "remove": "^0.1.5",
     "shopify_jsm-image-tiles": "^1.0.4"
   },
   "devDependencies": {
