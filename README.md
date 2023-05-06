@@ -1,9 +1,17 @@
+
 # shopify-base
 <p>Base setup for modular sections and blocks with gulp sass compiler</p>
 <p>Base for Shopify template repo - intended to be use as a github template to create a new repo and then for that repo to be used for a site theme with installed sections and blocks via npm install</p>
 
-# <h1>How to use</h1>
+# Requirments - at the time of writing
+<pre>npm -v </pre> 
+9.6.5
 
+<pre>shopify --version</pre>  
+@shopify/cli/3.45.1 win32-x64 node-v18.13.0
+
+
+# <h1>How to use</h1>
 <h3><strong>FIRST TIME SETUP</strong></h3>
 - clone repo 
 - setup use the following command
