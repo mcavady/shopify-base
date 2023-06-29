@@ -1,0 +1,177 @@
+.jsm-trust-cards {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.jsm-trust-cards .section-title {
+  text-align: center;
+}
+.jsm-trust-cards .section-text {
+  text-align: center;
+}
+.jsm-trust-cards .usps {
+  margin: 0 auto;
+  width: 65%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.jsm-trust-cards .usps .usp {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  align-content: center;
+  flex-direction: row;
+  justify-content: center;
+  width: 33.3%;
+  border-right: 1px solid #aaa;
+}
+.jsm-trust-cards .usps .usp:last-of-type {
+  border: none;
+}
+.jsm-trust-cards .usps .usp .icon {
+  padding-right: 25px;
+}
+.jsm-trust-cards .usps .usp .icon img {
+  width: 50px;
+}
+.jsm-trust-cards .usps .usp .text {
+  max-width: 165px;
+}
+.jsm-trust-cards .usps .usp .text p {
+  margin: 0;
+  text-align: left;
+}
+.jsm-trust-cards .slider .slick-slide {
+  margin: 0 20px;
+}
+.jsm-trust-cards .slider .slick-list {
+  margin-left: -30vw;
+}
+.jsm-trust-cards .slider .slick-dots li button:before {
+  border: 0;
+  color: #DDDDDD;
+}
+.jsm-trust-cards .slider .slick-dots li.slick-active button:before {
+  color: #fc9b54;
+}
+.jsm-trust-cards .slider .card {
+  width: 780px !important;
+}
+.jsm-trust-cards .slider .card .card-inner {
+  display: flex;
+  height: auto;
+  flex-direction: row;
+  background: white;
+  margin: 15px 0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 6px #aaa;
+  flex-wrap: nowrap;
+  align-content: stretch;
+  align-items: center;
+  justify-content: space-between;
+}
+.jsm-trust-cards .slider .card .card-inner .image {
+  width: 326px;
+  overflow: hidden;
+}
+.jsm-trust-cards .slider .card .card-inner .image img {
+  width: 100%;
+  height: auto;
+  max-width: 120%;
+}
+.jsm-trust-cards .slider .card .card-inner .text {
+  padding: 35px;
+  width: 475px;
+}
+.jsm-trust-cards .slider .card .card-inner .text .top-caption {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 17px;
+}
+.jsm-trust-cards .slider .card .card-inner .text .stars {
+  margin-bottom: 10px;
+}
+.jsm-trust-cards .slider .card .card-inner .text .stars svg {
+  height: 14px;
+  width: 14px;
+}
+.jsm-trust-cards .slider .card .card-inner .text .title {
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 25px;
+  margin-bottom: 10px;
+}
+.jsm-trust-cards .slider .card .card-inner .text .paragraph {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 21px;
+}
+.jsm-trust-cards .slider .card .card-inner .text .button {
+  margin-top: 25px;
+  background: transparent;
+  border: 1px solid #fc9b54;
+  color: #fc9b54;
+  border-radius: 25px;
+}
+
+@media screen and (max-width: 768px) {
+  .jsm-trust-cards .usps {
+    width: 100%;
+  }
+  .jsm-trust-cards .usps .usp {
+    width: 33.3%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .jsm-trust-cards .usps {
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+  .jsm-trust-cards .usps .usp {
+    width: 75%;
+    border-right: 0;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    padding-top: 15px;
+  }
+  .jsm-trust-cards .slider .slick-list {
+    margin-left: 5% !important;
+  }
+  .jsm-trust-cards .slider .card {
+    width: initial !important;
+    max-width: 320px;
+  }
+  .jsm-trust-cards .slider .card .card-inner {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    background: white;
+    margin: 15px 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 6px #aaa;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .jsm-trust-cards .slider .card .card-inner .image {
+    width: 320px;
+    overflow: hidden;
+    border-radius: 0;
+  }
+  .jsm-trust-cards .slider .card .card-inner .text {
+    text-align: center;
+    width: initial;
+    margin-top: -20px;
+    background: white;
+  }
+}

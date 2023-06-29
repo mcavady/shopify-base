@@ -1,0 +1,74 @@
+/* Run gulpfile.js to output this to assets folder */
+.jsm-image-tiles {
+  width: 100%;
+}
+.jsm-image-tiles .title.left {
+  text-align: left;
+}
+.jsm-image-tiles .title.center {
+  text-align: center;
+}
+.jsm-image-tiles .title.right {
+  text-align: right;
+}
+.jsm-image-tiles .jsm-image-tiles-inner {
+  width: 100%;
+  display: flex;
+  align-content: flex-start;
+  flex-direction: row;
+}
+.jsm-image-tiles .jsm-image-tiles-inner.top {
+  align-items: flex-start;
+}
+.jsm-image-tiles .jsm-image-tiles-inner.center {
+  align-items: center;
+}
+.jsm-image-tiles .jsm-image-tiles-inner.bottom {
+  align-items: flex-end;
+}
+.jsm-image-tiles .jsm-image-tiles-inner .tile {
+  width: 50%;
+}
+.jsm-image-tiles .jsm-image-tiles-inner .tile .img-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.jsm-image-tiles .jsm-image-tiles-inner .tile .img-wrapper:hover img {
+  opacity: 0.5;
+}
+.jsm-image-tiles .jsm-image-tiles-inner .tile .img-wrapper a {
+  display: block;
+  width: 100%;
+}
+.jsm-image-tiles .jsm-image-tiles-inner .tile .img-wrapper img {
+  width: 100%;
+  height: auto;
+}
+.jsm-image-tiles .jsm-image-tiles-inner .tile .img-wrapper .read-more {
+  position: absolute;
+  bottom: 0;
+  z-index: 1;
+  width: 100%;
+  text-align: center;
+}
+.jsm-image-tiles .jsm-image-tiles-inner .tile .img-wrapper .read-more svg {
+  height: 50px;
+}
+
+@media screen and (max-width: 767px) {
+  .jsm-image-tiles {
+    width: 100%;
+  }
+  .jsm-image-tiles .jsm-image-tiles-inner {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+  .jsm-image-tiles .jsm-image-tiles-inner .tile {
+    width: 100%;
+  }
+}

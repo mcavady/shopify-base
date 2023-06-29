@@ -1,0 +1,90 @@
+/* Run gulpfile.js to output this to assets folder */
+.jsm-image-tiles {
+  width: 100%;
+
+  .title {
+    &.left {
+      text-align: left;
+    }
+    &.center {
+      text-align: center;
+    }
+    &.right {
+      text-align: right;
+    }
+  }
+
+  .jsm-image-tiles-inner {
+    width: 100%;
+    display: flex;
+    align-content: flex-start;
+    flex-direction: row;
+
+    &.top {
+      align-items: flex-start;
+    }
+    &.center {
+      align-items: center;
+    }
+    &.bottom {
+      align-items: flex-end;
+    }
+
+    .tile {
+      width: 50%;
+
+      .img-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+
+        &:hover {
+          img {
+            opacity: 0.5;
+          }
+        }
+
+        a {
+          display: block;
+          width: 100%;
+        }
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+
+        .read-more {
+          position: absolute;
+          bottom: 0;
+          z-index: 1;
+          width: 100%;
+          text-align: center;
+
+          svg {
+            height: 50px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .jsm-image-tiles {
+    width: 100%;
+
+    .jsm-image-tiles-inner {
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+
+      .tile {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,297 @@
+{% assign text_color = section.settings.text_color %}
+{% assign overlay = section.settings.opacity | times: 0.1 %}
+{% assign slide_id = section.settings.slide_id | downcase | remove: " " %}
+{% assign show_btn = section.settings.show_btn %}
+{% assign show_dots = section.settings.show_dots %}
+{% assign is_infinate = section.settings.is_infinate %}
+{% assign slide_speed = section.settings.slide_speed %}
+{% assign slide_autoplay = section.settings.slide_autoplay %}
+{% assign slide_time = section.settings.slide_time %}
+{% assign slides_to_show = section.settings.slides_to_show %}
+<script src="{{ 'jquery-3.3.1.js' | asset_url }}"  ></script>
+<script src="{{ 'slick.min.js' | asset_url }}"  ></script>
+
+{{ 'slick.css' | asset_url | stylesheet_tag }}
+{{ 'slick-theme.css' | asset_url | stylesheet_tag }}
+{{ 'jsm-trust-cards.css' | asset_url | stylesheet_tag }}
+
+
+{% for block in section.blocks %}
+    {% assign usp = section.blocks | where: 'type', 'usp' %}
+    {% assign card = section.blocks | where: 'type', 'card' %}
+{% endfor %}
+
+<div id="section-id-{{ section.id }}" class="jsm-trust-cards" style="background: {{ section.settings.cards_bg }};">
+    <div class="section-title">
+        <h2>{{ section.settings.section_title }}</h2>
+    </div>
+    <div class="section-text">
+        {{ section.settings.section_text }}
+    </div>
+    <div class="usps">
+        {% for block in usp %}
+            <div class="usp">
+                <div class="icon">
+                    <img src="{{ block.settings.slide_icon | img_url: "master" }}" />
+                </div>
+                <div class="text">
+                    {{  block.settings.main_text }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+    <div id="{{ slide_id }}" class="slider">
+        {% for block in card %}
+            <div class="card">
+                <div class="card-inner">
+                    <div class="image">
+                        <img src="{{ block.settings.slide_image | img_url: "master" }}" />
+                    </div>
+                    <div class="text">
+                        <div class="top-caption">
+                            {{ block.settings.top_caption }}
+                        </div>
+                        <div class="stars">
+                                {% assign num = block.settings.stars %}
+                            
+                                {% tablerow i in (1..num) %}
+                                    {%  render "jsm-icon-star" %}
+                                {% endtablerow %}
+                        </div>
+                        
+                        <div class="title">
+                            {{ block.settings.title }}
+                        </div>
+                        <div class="paragraph">
+                            {{ block.settings.paragraph }}
+                        </div>
+                        {% if block.settings.button %}
+                            <a href="{{ block.settings.button }}" class="button" style="background: {{ block.settings.button_bg }}">
+                                {{ block.settings.button_text }}
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+
+
+{% schema %}
+{
+    "name": "JSM Trust Cards",
+    "settings": [
+        {
+            "type": "text",
+            "id": "slide_id",
+            "label": "Slide Div ID - Required"
+        },
+        {
+            "type": "color",
+            "id": "cards_bg",
+            "label": "background Colour",
+            "default": "#ddd"
+        },
+        {
+            "type": "checkbox",
+            "id": "slide_autoplay",
+            "label": "Auto Play"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_btn",
+            "label": "Show controls"
+        },
+        {
+            "type": "checkbox",
+            "id": "show_dots",
+            "label": "Show Dots"
+        },
+        {
+            "type": "checkbox",
+            "id": "is_infinite",
+            "label": "Infinite Scroll"
+        },
+        {
+            "type": "number",
+            "id": "slide_speed",
+            "label": "Slide Speed in MS",
+            "default": 2500
+        },
+        {
+            "type": "number",
+            "id": "slide_time",
+            "label": "Slide Time Shown",
+            "default": 2500
+        },
+        {
+            "type": "number",
+            "id": "slides_to_show",
+            "label": "Slides to Show",
+            "default": 3
+        },
+        {
+            "type": "text",
+            "id": "section_title",
+            "label": "Section Title",
+            "default":"Section Title"
+        },
+        {
+            "type": "text",
+            "id": "section_text",
+            "label": "Section Text",
+            "default":"Say a little more about what to trust"
+        }
+    
+    ],
+    "blocks": [
+        {
+            "type": "usp",
+            "name": "USP",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "slide_icon",
+                    "label": "Slide Icon"
+                },
+                {
+                    "type": "richtext",
+                    "id": "main_text",
+                    "label": "USP Text",
+                    "default": "<p>USP - Text</p>"
+                }
+            ]
+        },
+        {
+            "type": "card",
+            "name": "Card",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "slide_image",
+                    "label": "Slide Image"
+                },
+                {
+                    "type": "text",
+                    "id": "top_caption",
+                    "label": "Top caption",
+                    "default": "Top Caption"
+                },
+                {
+                    "type": "number",
+                    "id": "stars",
+                    "label": "Stars",
+                    "default": 5
+                },
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Card title",
+                    "default": "Card Title"
+                },
+                {
+                    "type": "text",
+                    "id": "paragraph",
+                    "label": "Card paragraph",
+                    "default": "Card paragraph"
+                },
+                {
+                    "type": "url",
+                    "id": "button",
+                    "label": "Link"
+                },
+                {
+                    "type": "text",
+                    "id": "button_text",
+                    "label": "Button Text",
+                    "default": "Read More"
+                },
+                {
+                    "type": "color",
+                    "id": "button_bg",
+                    "label": "Button Colour",
+                    "default": "#ddd"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "JSM Trust Cards",
+            "category": "Slider",
+            "blocks": [
+                {
+                    "type": "usp"
+                },
+                {
+                    "type": "card"
+                },
+                {
+                    "type": "card"
+                },
+                {
+                    "type": "card"
+                },
+                {
+                    "type": "card"
+                },
+                {
+                    "type": "card"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        let show_controls = {{ show_btn | json }};
+        let div_id = {{ slide_id | json }};
+        let dots = {{ show_dots | json }};
+        let infinite = {{ is_infinite | json }};
+        let speed = {{ slide_speed | json }};
+        let autoplay = {{ slide_autoplay | json }};
+        let autoplay_speed = {{ slide_time | json }};
+        let slides_to_show = {{ slides_to_show | json }};
+        
+        jQuery("#" + div_id).slick({
+            dots: dots,
+            infinite: false,
+            initialSlide: 0,
+            speed: speed,
+            slidesToScroll: 1,
+            autoplay: autoplay,
+            autoplaySpeed: autoplay_speed,
+            prevArrow: "<div class=\"slick-prev\"><svg width=\"9\" height=\"16\" viewBox=\"0 0 9 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M8 15L1 8L8 1\" stroke=\"#231F20\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></div>",
+            nextArrow: "<div class=\"slick-next\"><svg width=\"9\" height=\"16\" viewBox=\"0 0 9 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M1 1L8 8L1 15\" stroke=\"#231F20\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></div>",
+            arrows: show_controls,
+            adaptiveHeight: false,
+            slidesToShow: slides_to_show,
+            variableWidth: true,
+            responsive: [
+                {
+                    breakpoint: 960,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                    },
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                    }
+                },
+            ],
+        });
+    });
+</script>
