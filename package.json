@@ -4,16 +4,17 @@
   "description": "Shopify version - Shopify CLI for themes",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "node scripts/bashscripting.js ||  store_setup.sh && echo \"Post install Ran\""
+    "postinstall": "node bashscripting/skip.js || store_setup.sh && echo \" Post install Ran \""
   },
   "author": "James Mcavady",
   "dependencies": {
     "@shopify/cli": "^3.23.0",
-    "shopify_jsm-image-tiles": "^1.0.4"
+    "shopify_jsm-image-tiles": "^1.0.4",
+    "shopify_jsm-trust-cards": "^1.0.0"
   },
   "devDependencies": {
     "eslint": "^8.27.0",
-    "gulp": "^3.9.1",
+    "gulp": "4.0.2",
     "gulp-changed": "^3.2.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-cli": "^2.3.0",

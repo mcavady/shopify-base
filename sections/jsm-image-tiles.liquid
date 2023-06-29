@@ -1,0 +1,195 @@
+{{ 'jsm-image-tiles.css' | asset_url | stylesheet_tag }}
+<div class="jsm-image-tiles">
+  <div class="title {{ section.settings.text_alignment }}" >
+    {{ section.settings.title }}
+  </div>
+  
+  <div class="jsm-image-tiles-inner {{ section.settings.image_alignment }}" style="padding-top: {{ section.settings.padding_top }}px;padding-bottom: {{ section.settings.padding_bottom }}px;">
+    {% for block in section.blocks %}
+      {% assign imageQuality = block.settings.image_quality %}
+  
+      <div class="tile">
+        {% if block.settings.image_link %}
+          <div class="img-wrapper">
+            <a href="{{ block.settings.image_link }}" title="{{ block.settings.image_link.title }}">
+              <img srcset="{{ block.settings.tile_image | img_url: imageQuality }}"
+                   src="{{ block.settings.tile_image | img_url: imageQuality }}"
+                   alt="{{ block.settings.tile_image.alt | escape }}"
+                   title="{{ block.settings.tile_image.alt | escape }}"
+                   class="lazyload Image--lazyLoad"
+              >
+              <div class="read-more">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     aria-hidden="true"
+                     focusable="false"
+                     class="icon icon-read-more"
+                     fill="{{ block.settings.link_color }}"
+                     viewBox="0 0 448 512"
+                >
+                  <path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" fill="{{ block.settings.link_color }}"/>
+                </svg>
+              </div>
+            </a>
+          </div>
+        {% else %}
+          <div class="img-wrapper">
+            <img srcset="{{ block.settings.tile_image | img_url: imageQuality }}"
+                 src="{{ block.settings.tile_image | img_url: imageQuality }}"
+                 alt="{{ block.settings.tile_image.alt | escape }}"
+                 title="{{ block.settings.tile_image.alt | escape }}"
+                 class="lazyload Image--lazyLoad"
+            >
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.jsm.section_name",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "t:sections.jsm.section_title"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.jsm.section_align_left"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.jsm.section_align_center"
+        },
+        {
+          "value": "right",
+          "label": "t:sections.jsm.section_align_right"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.jsm.section_align_label"
+    },
+    {
+      "type": "select",
+      "id": "image_alignment",
+      "options": [
+        {
+          "value": "top",
+          "label": "t:sections.jsm.image_align_left"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.jsm.image_align_center"
+        },
+        {
+          "value": "bottom",
+          "label": "t:sections.jsm.image_align_right"
+        }
+      ],
+      "default": "center",
+      "label": "t:sections.jsm.image_align_label"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tile",
+      "name": "t:sections.jsm.blocks.block_name",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "tile_image",
+          "label": "t:sections.jsm.blocks.image_label"
+        },
+        {
+          "type": "url",
+          "id": "image_link",
+          "label": "t:sections.jsm.blocks.link_label"
+        },
+        {
+          "type": "color",
+          "id": "link_color",
+          "label": "t:sections.jsm.blocks.link_color",
+          "default": "#ddd"
+        },
+        {
+          "type": "select",
+          "id": "image_quality",
+          "options": [
+            {
+              "value": "thumb",
+              "label": "t:sections.jsm.blocks.image_quality_thumb"
+            },
+            {
+              "value": "small",
+              "label": "t:sections.jsm.blocks.image_quality_small"
+            },
+            {
+              "value": "compact",
+              "label": "t:sections.jsm.blocks.image_quality_compact"
+            },
+            {
+              "value": "medium",
+              "label": "t:sections.jsm.blocks.image_quality_medium"
+            },
+            {
+              "value": "large",
+              "label": "t:sections.jsm.blocks.image_quality_large"
+            },
+            {
+              "value": "grande",
+              "label": "t:sections.jsm.blocks.image_quality_grande"
+            },
+            {
+              "value": "original",
+              "label": "t:sections.jsm.blocks.image_quality_original"
+            },
+            {
+              "value": "master",
+              "label": "t:sections.jsm.blocks.image_quality_master"
+            }
+          ],
+          "default": "large",
+          "label": "t:sections.jsm.blocks.image_quality_label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.jsm.section_name",
+      "category": "Image",
+      "blocks": [
+        {
+          "type": "tile"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
