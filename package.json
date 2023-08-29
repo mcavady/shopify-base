@@ -1,27 +1,21 @@
 {
-  "name": "jsm-defaults",
+  "name": "smarte-theme-defaults",
   "version": "1.0.0",
-  "description": "Shopify version - Shopify CLI for themes",
+  "description": "Shopify version - uses theme kit watch",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "node bashscripting/skip.js || store_setup.sh && echo \" Post install Ran \""
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "James Mcavady",
+  "author": "james mcavady",
   "dependencies": {
-    "@shopify/cli": "^3.23.0",
-    "shopify_jsm-image-tiles": "^1.0.4",
-    "shopify_jsm-trust-cards": "^1.0.0"
+    "@shopify/themekit": "^1.1.9"
   },
   "devDependencies": {
-    "eslint": "^8.27.0",
-    "gulp": "4.0.2",
-    "gulp-changed": "^3.2.0",
+    "gulp": "^4.0.2",
+    "gulp-changed": "^4.0.3",
     "gulp-clean-css": "^4.3.0",
     "gulp-cli": "^2.3.0",
     "gulp-sass": "^5.0.0",
-    "node-sass": "^8.0.0",
-    "prettier": "^2.7.1",
-    "sass": "^1.42.1",
-    "stylelint": "^14.6.1"
+    "node-sass": "^9.0.0",
+    "sass": "^1.42.1"
   }
 }

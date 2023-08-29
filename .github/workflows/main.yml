@@ -1,10 +1,10 @@
-name: Shopify Lighthouse CI
+name: Shopify CI
 on:
   # Trigger the workflow on push or pull request,
   # but only for the main branch
-  #push:
-  #  branches:
-  #    - main
+  push:
+    branches:
+      - main
   # Replace pull_request with pull_request_target if you
   # plan to use this action with forks, see the Limitations section
   pull_request:
@@ -21,57 +21,13 @@ jobs:
     - name: Slack Notification
       uses: rtCamp/action-slack-notify@v2
       env:
-        SLACK_COLOR: 'good'
+        SLACK_COLOR: '#2D87E2'
         SLACK_ICON: https://github.com/Shopify/shopify.github.com/blob/master/images/github.svg?size=48
-        SLACK_MESSAGE: 'Speed Testing :rocket: ${{ github.event.repository.name }}'
-        SLACK_TITLE: Test Started
+        SLACK_MESSAGE: 'Change Made to Live Site -- ${{ github.event.repository.name }}'
+        SLACK_TITLE: Admin Panel or Git Change made
         SLACK_USERNAME: Shopify CI
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_FOOTER: ''
 
-  lhci:
-    name: Lighthouse
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Lighthouse
-        uses: shopify/lighthouse-ci-action@v1
-        with:
-          access_token: ${{ secrets.SHOP_ACCESS_TOKEN }}
-          store: ${{ secrets.SHOP_STORE }}
-          password: ${{ secrets.SHOP_STORE_PASS }}
-          lhci_github_app_token: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-          lhci_min_score_performance: 0.7
-          lhci_min_score_accessibility: 0.9
-          
-  tests-passed:
-     name: Pass Notification
-     needs: lhci
-     runs-on: ubuntu-latest
-     steps:
-       - uses: actions/checkout@v1
-       - name: Slack Notification
-         uses: rtCamp/action-slack-notify@v2
-         env:
-           SLACK_COLOR: 'good'
-           SLACK_ICON: https://github.com/Shopify/shopify.github.com/blob/master/images/github.svg?size=48
-           SLACK_MESSAGE: 'Passed Speed Testing :rocket: ${{ github.event.repository.name }}'
-           SLACK_TITLE: Test Passed
-           SLACK_USERNAME: Shopify CI
-           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
          
-  tests-failed:
-    name: Fail Notification
-    if: ${{ failure() }}
-    needs: lhci
-    runs-on: ubuntu-latest
-    steps:
-       - uses: actions/checkout@v1
-       - name: Slack Notification
-         uses: rtCamp/action-slack-notify@v2
-         env:
-           SLACK_COLOR: '#FF0000'
-           SLACK_ICON: https://github.com/Shopify/shopify.github.com/blob/master/images/github.svg?size=48
-           SLACK_MESSAGE: 'Failed Speed Testing :rocket: ${{ github.event.repository.name }}'
-           SLACK_TITLE: Test Failed
-           SLACK_USERNAME: Shopify CI
-           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+  

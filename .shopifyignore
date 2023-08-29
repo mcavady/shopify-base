@@ -1,12 +1,5 @@
-#adding in the ignores for CLI3 - if you do a theme pull and the file is not something that Shopify is allowing the file will go "missing"
 package.json
 package-lock.json
-store_setup.sh
-.github
-.idea
-/bashscripting
 /node_modules
 /scss
 /scripts
-/node_modules
-gulpfile.js
